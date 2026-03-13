@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Well Soon Anvesha</title>
+
+<style>
+
+/* Mobile‑first design (optimized for phone) */
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg,#ffd6e7,#ffe9c9);
+  margin:0;
+  padding:20px 16px;
+}
+
+.card{
+  background:white;
+  padding:24px 18px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 12px 35px rgba(0,0,0,0.12);
+  max-width:420px;
+  margin:auto;
+}
+
+h1{
+  font-size:1.9rem;
+  margin-top:0;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:15px;
+  line-height:1.5;
+  margin:10px 0;
+}
+
+button{
+  margin-top:10px;
+  padding:12px 14px;
+  border:none;
+  border-radius:12px;
+  background:#ff6fa5;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  width:55%;
+  font-weight:500;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+button:active{
+  transform:scale(0.97);
+}
+
+.joke{
+  margin-top:10px;
+  font-size:15px;
+  color:#444;
+  display:none;
+}
+
+.question{
+  margin-top:22px;
+}
+
+/* teddy stickers around each question */
+.qbox{
+  position:relative;
+  padding:14px 10px;
+  margin-bottom:12px;
+}
+
+.qbox::before{
+  content:"🧸";
+  position:absolute;
+  left:-6px;
+  top:4px;
+  font-size:28px;
+  opacity:0.15;
+}
+
+.qbox::after{
+  content:"🧸";
+  position:absolute;
+  right:-6px;
+  bottom:4px;
+  font-size:28px;
+  opacity:0.15;
+}
+
+/* Small cute teddy decoration (safe for phone layout) */
+.teddy{
+  font-size:26px;
+  opacity:0.9;
+  margin:6px;
+}
+
+.teddy-row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+
+
+/* Light transparent teddy background */
+.bg-teddies{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-items:space-around;
+  font-size:40px;
+  opacity:0.08; /* very light so text stays readable */
+}
+
+.card{
+  position:relative;
+  z-index:1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-teddies">
+<span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span>
+<span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span>
+<span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span>
+</div>
+
+<div class="card">
+
+<div class="teddy-row">
+<span class="teddy">🧸</span>
+<span class="teddy">🧸</span>
+<span class="teddy">🧸</span>
+</div>
+
+<h1>Get Well Soon Àñveshä 💖</h1>
+
+<p>Hey Àñveshä 🙂</p>
+<p>Please take care of yourself, okay?</p>
+<p>It honestly hurts a lot to see you in pain.</p>
+
+<p><b>Doctor's prescription:</b></p>
+<p>💊 Take medicines<br>🛌 Rest properly<br>🙂 Smile a little</p>
+
+<div class="question">
+
+<div class="qbox">
+<p><b>Did you take your tablet today? 💊</b></p>
+<button onclick="reply('good','r1')">Yes Doctor 😇</button>
+<button onclick="reply('tablet','r1')">Not yet 😅</button>
+<div class="joke" id="r1"></div>
+</div>
+
+<div class="qbox">
+<p><b>Did you clean your wounds and put medicine? 🩹</b></p>
+<button onclick="reply('care','r2')">Yes I did</button>
+<button onclick="reply('care_no','r2')">Oops not yet</button>
+<div class="joke" id="r2"></div>
+</div>
+
+<div class="qbox">
+<p><b>Are you resting properly or still being stubborn? 😏</b></p>
+<button onclick="reply('rest','r3')">Resting</button>
+<button onclick="reply('rest_no','r3')">Maybe a little stubborn</button>
+<div class="joke" id="r3"></div>
+</div>
+
+<div class="qbox">
+<p><b>Most important question… did you smile today? 🙂</b></p>
+<button onclick="reply('smile','r4')">Yes</button>
+<button onclick="reply('smile_no','r4')">Not really</button>
+<div class="joke" id="r4"></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function reply(type,id){
+  const r = document.getElementById(id);
+  r.style.display='block';
+
+  if(type==='good'){
+    r.innerText = "Good girl 😌 Keep taking medicines and get well soon!";
+  }
+  if(type==='tablet') r.innerText = "Hey! Go take it now 😤 Doctor's orders!";
+  if(type==='care') r.innerText = "Good! Proper care = faster recovery 🧸";
+  if(type==='care_no') r.innerText = "Go clean it and put medicine… I’m serious!";
+  if(type==='rest') r.innerText = "Good. Rest like a responsible patient 😌";
+  if(type==='rest_no') r.innerText = "No stubbornness allowed. Doctor's rules.";
+  if(type==='smile') r.innerText = "That's better. Your smile is required for recovery.";
+  if(type==='smile_no') r.innerText = "Then smile now 🙂 It's part of the treatment.";
+}
+
+</script>
+
+</body>
+</html>
